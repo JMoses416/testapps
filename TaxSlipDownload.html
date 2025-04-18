@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Canada Revenue Agency - Tax Slips Portal</title>
+  <link rel="icon" href="https://www.canada.ca/etc/designs/canada/wet-boew/assets/favicon.ico">
+  <style>
+    body {
+      font-family: Helvetica, Arial, sans-serif;
+      background-color: #fff;
+      color: #222;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #c8102e;
+      color: white;
+      padding: 1em;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.5em;
+      max-width: 80%;
+    }
+
+    .gov-logo {
+      height: 50px;
+    }
+
+    .container {
+      padding: 2em;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .btn {
+      background-color: #0072ce;
+      color: white;
+      padding: 1em 2em;
+      border: none;
+      font-size: 1em;
+      cursor: pointer;
+      margin-top: 1em;
+    }
+
+    .btn:hover {
+      background-color: #005fa3;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Canada Revenue Agency - Secure Tax Slips Access</h1>
+    <img class="gov-logo" src="https://www.canada.ca/etc/designs/canada/wet-boew/assets/sig-blk-en.svg" alt="Government of Canada">
+  </header>
+
+  <div class="container">
+    <p>Welcome to the official Canada Revenue Agency Tax Slip Portal. Please click the button below to securely download your tax documents.</p>
+    <button class="btn" onclick="playClownLaugh()">Click here to download your tax slips</button>
+    <audio id="clownLaugh" preload="auto">
+      <source src="https://cdn.pixabay.com/audio/2023/05/24/audio_ede9d74bfc.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+
+  <script>
+    function playClownLaugh() {
+      const audio = document.getElementById('clownLaugh');
+      audio.currentTime = 0;
+      audio.play().catch(error => {
+        alert("Your browser blocked the sound! Try clicking again or check browser settings.");
+      });
+    }
+  </script>
+</body>
+</html>
