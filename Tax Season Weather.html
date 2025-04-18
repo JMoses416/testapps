@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tax Season Weather</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+      background: #f4f4f4;
+    }
+    h1 {
+      font-size: 2.5em;
+    }
+    #weather {
+      font-size: 1.5em;
+      margin-top: 20px;
+    }
+    #status {
+      font-size: 2em;
+      margin-top: 30px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Toronto Weather Checker</h1>
+  <div id="weather">Checking weather...</div>
+  <div id="status"></div>
+
+  <script>
+    const apiKey = "YOUR_API_KEY"; // Replace this with your actual API key
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=Toronto,CA&units=metric&appid=${apiKey}`;
+
+    fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        const temp = data.main.temp;
+        const weatherDescription = data.weather[0].main.toLowerCase();
+
+        document.getElementById("weather").textContent = 
+          `Current Temp: ${temp}°C, Condition: ${data.weather[0].description}`;
+
+        if (temp < 10 || weatherDescription.includes("rain")) {
+          document.getElementById("status").textContent = "Tax Season Weather";
+        } else {
+          document.getElementById("status").textContent = "Not Tax Season Weather";
+        }
+      })
+      .catch(error => {
+        document.getElementById("weather").textContent = "Error fetching weather data.";
+        console.error(error);
+      });
+  </script>
+</body>
+</html>
