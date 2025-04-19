@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>Canada Revenue Agency - Tax Slips Portal</title>
-  <link rel="icon" href="https://www.canada.ca/etc/designs/canada/wet-boew/assets/favicon.ico">
   <style>
     body {
       font-family: Helvetica, Arial, sans-serif;
@@ -36,6 +35,7 @@
       padding: 2em;
       max-width: 800px;
       margin: 0 auto;
+      text-align: center;
     }
 
     .btn {
@@ -61,20 +61,12 @@
 
   <div class="container">
     <p>Welcome to the official Canada Revenue Agency Tax Slip Portal. Please click the button below to securely download your tax documents.</p>
-    <button class="btn" onclick="playClownLaugh()">Click here to download your tax slips</button>
-    <audio id="clownLaugh" preload="auto">
-      <source src="https://cdn.pixabay.com/audio/2023/05/24/audio_ede9d74bfc.mp3" type="audio/mpeg">
-      Your browser does not support the audio element.
-    </audio>
+    <button class="btn" onclick="redirectToVideo()">Click here to download your tax slips</button>
   </div>
 
   <script>
-    function playClownLaugh() {
-      const audio = document.getElementById('clownLaugh');
-      audio.currentTime = 0;
-      audio.play().catch(error => {
-        alert("Your browser blocked the sound! Try clicking again or check browser settings.");
-      });
+    function redirectToVideo() {
+      window.open("https://youtube.com/shorts/6rVd4KkKuiY?si=j11_c96Td3vS4Ghr", "_blank");
     }
   </script>
 </body>
