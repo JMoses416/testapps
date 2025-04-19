@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Canada Revenue Agency - Tax Slip Portal</title>
+  <style>
+    body {
+      font-family: Helvetica, Arial, sans-serif;
+      background-color: #fff;
+      color: #222;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    header {
+      background-color: #c8102e;
+      color: white;
+      padding: 1em;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.5em;
+      max-width: 80%;
+    }
+
+    .gov-logo {
+      height: 50px;
+    }
+
+    .container {
+      padding: 2em;
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+      height: 60vh;
+    }
+
+    .btn {
+      position: absolute;
+      background-color: #0072ce;
+      color: white;
+      padding: 1em 2em;
+      border: none;
+      font-size: 1em;
+      cursor: pointer;
+      transition: top 0.2s, left 0.2s;
+    }
+
+    .btn:hover {
+      background-color: #005fa3;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Canada Revenue Agency - Secure Tax Slip Access</h1>
+    <img class="gov-logo" src="https://www.canada.ca/etc/designs/canada/wet-boew/assets/sig-blk-en.svg" alt="Government of Canada">
+  </header>
+
+  <div class="container" id="container">
+    <p>Welcome to the official Canada Revenue Agency Tax Slip Portal. Please click the button below to securely download your tax documents.</p>
+    <button class="btn" id="craButton" style="top: 150px; left: 250px;">Click here to download your tax slips</button>
+  </div>
+
+  <script>
+    const btn = document.getElementById('craButton');
+    const container = document.getElementById('container');
+
+    container.addEventListener('mousemove', (e) => {
+      const rect = btn.getBoundingClientRect();
+      const mouseX = e.clientX;
+      const mouseY = e.clientY;
+
+      const distance = Math.hypot(mouseX - rect.left - rect.width/2, mouseY - rect.top - rect.height/2);
+
+      if (distance < 120) {
+        let newLeft = Math.random() * (container.clientWidth - btn.offsetWidth);
+        let newTop = Math.random() * (container.clientHeight - btn.offsetHeight);
+
+        btn.style.left = `${newLeft}px`;
+        btn.style.top = `${newTop}px`;
+      }
+    });
+  </script>
+</body>
+</html>
