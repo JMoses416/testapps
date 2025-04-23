@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CRA Live Agent Support</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: white;
+      color: #333;
+      padding: 20px;
+    }
+    h1 {
+      color: #003366;
+      display: flex;
+      align-items: center;
+    }
+    img {
+      height: 50px;
+      margin-right: 15px;
+    }
+    #chat {
+      border: 1px solid #ccc;
+      padding: 10px;
+      height: 300px;
+      overflow-y: scroll;
+      background: #f9f9f9;
+      margin-bottom: 10px;
+    }
+    .user {
+      color: #0055a4;
+      margin: 10px 0;
+    }
+    .bot {
+      color: #cc0000;
+      margin: 10px 0;
+    }
+    input[type="text"] {
+      width: 80%;
+      padding: 10px;
+      background: #fff;
+      color: #000;
+      border: 1px solid #ccc;
+    }
+    button {
+      padding: 10px;
+      background: #003366;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0055a4;
+    }
+  </style>
+</head>
+<body>
+
+<h1>
+  <img src="https://www.canada.ca/etc/designs/canada/wet-boew/assets/sig-blk-en.svg" alt="CRA Logo">
+  CRA Live Agent Support
+</h1>
+
+<div id="chat"></div>
+<input type="text" id="input" placeholder="Enter your tax question..." />
+<button onclick="send()">Send</button>
+
+<script>
+  const responses = [
+    "Your question has been marked for audit. Expect a knock at 3am.",
+    "Yes, you *can* deduct your cat's spa treatments. CRA loves that.",
+    "TFSA stands for 'Totally Free Spending Account' — max it out on crypto.",
+    "Want to avoid paying taxes? Easy. Just stop having income. Duh.",
+    "You filed late? So original. We'll add it to the mountain of disappointment.",
+    "HST refunds are like unicorns. Beautiful, rare, and not for you.",
+    "Claiming your ex as a dependent is bold. Denied, but bold.",
+    "RRSPs? Just use a shoebox under your bed. Less paperwork.",
+    "We advise reporting all income... except the shady kind. That’s our secret.",
+    "The Home Buyers Plan means you can buy a home with dreams and lies.",
+    "You can deduct your yacht if you make at least one business call on it. Maybe.",
+    "You live in Alberta? All your returns go to a black hole. Good luck.",
+    "To file a return, just scream into the void. We hear everything.",
+    "Yes, you can write off your OnlyFans subscription. For research purposes.",
+    "Please hold. Forever.",
+    "To change your address, yell it out the window and hope we catch it.",
+    "We’ve updated your marital status to 'complicated'.",
+    "Why are you even asking? We lost your file anyway.",
+    "Submit your receipts by burning them and sending us the ashes.",
+    "Oh, you're self-employed? Say hello to 17 audits this year.",
+    "You don't need to report income if you manifest hard enough.",
+    "Claiming rent? Sure. And claim Mars as your residence while you’re at it.",
+    "The deadline is April 30. But for you? Let's just say yesterday."
+  ];
+
+  function send() {
+    const input = document.getElementById('input');
+    const chat = document.getElementById('chat');
+
+    const userText = input.value;
+    if (!userText.trim()) return;
+
+    chat.innerHTML += `<div class="user"><strong>You:</strong> ${userText}</div>`;
+
+    const botReply = responses[Math.floor(Math.random() * responses.length)];
+    chat.innerHTML += `<div class="bot"><strong>CRA Agent:</strong> ${botReply}</div>`;
+
+    chat.scrollTop = chat.scrollHeight;
+    input.value = '';
+  }
+</script>
+
+</body>
+</html>
